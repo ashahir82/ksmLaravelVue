@@ -18,11 +18,11 @@ class DocumentFactory extends Factory
     {
         return [
             //
-            'name' => fake()->name(),
-            'tarikh_diterbitkan' => fake()->date($format = 'Y-m-d', $max = 'now'),
-            'nama_penulis' => fake()->name(),
-            'nama_pelulus' => fake()->name(),
-            'tarikh_disahkan' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'name' => fake('ms_MY')->name(),
+            'tarikh_diterbitkan' => fake('ms_MY')->date($format = 'Y-m-d', $max = 'now'),
+            'nama_penulis' => fake('ms_MY')->name(),
+            'nama_pelulus' => fake('ms_MY')->name(),
+            'tarikh_disahkan' => fake('ms_MY')->date($format = 'Y-m-d', $max = 'now'),
         ];
     }
 }
