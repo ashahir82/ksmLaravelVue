@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index', [
+    return view('welcome', [
         'name' => 'Ahmad Shahir',
         'workplace' => 'Jabatan Tenaga Manusia',
     ]);
 });
+
+Route::get('/document', [DocumentController::class, 'index'])->name('document.index');
