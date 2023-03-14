@@ -19,11 +19,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js"></script>
 </head>
 
-<body class="antialiased">
-    <div
-        class="relative sm:flex sm:justify-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        <div class="mx-auto p-6 lg:p-8">
-            <div class="justify-center">
+<body class="bg-light">
+    <header>
+        <div class="px-3 py-2 bg-dark text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <i class="fa-brands fa-laravel fa-2xl"></i>
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                        <li>
+                            <a href="/" class="nav-link text-secondary">
+                                <i class="fa-solid fa-house"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/documents" class="nav-link text-white">
+                                <i class="fa-solid fa-gauge"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
                 <h1>{{ $page }}</h1>
                 <p>{{ $subpage }}</p>
                 <div class="float-end">
@@ -31,7 +57,8 @@
                         <i class="fa-solid fa-file-circle-plus"></i>
                     </a>
                 </div>
-
+            </div>
+            <div class="row">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -44,7 +71,7 @@
                     <tbody>
                         @foreach ($documents as $document)
                             <tr>
-                                <th scope="row">{{ $document->id }}</th>
+                                <th scope="row">{{ $documents->firstItem() + $loop->index }}</th>
                                 <td>{{ $document->name }}</td>
                                 <td>{{ $document->tarikh_diterbitkan }}</td>
                                 <td>
@@ -52,7 +79,8 @@
                                     <form action="{{ route('documents.destroy', $document) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <a href="{{ route('documents.edit', $document) }}" type="button" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('documents.edit', $document) }}" type="button"
+                                            class="btn btn-warning btn-sm">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
                                         <button type="submit" class="btn btn-danger btn-sm">
@@ -66,7 +94,7 @@
                 </table>
                 {{ $documents->links() }}
             </div>
-        </div>
+        </main>
     </div>
 </body>
 

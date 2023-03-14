@@ -40,14 +40,6 @@ class DocumentController extends Controller
     public function store(StoreDocumentRequest $request)
     {
         //
-        $this->validate($request, [
-            'name' => 'required',
-            'nama_penulis' => 'required',
-            'tarikh_diterbitkan' => 'required',
-            'nama_pelulus' => 'required',
-            'tarikh_disahkan' => 'required',
-        ]);
-
         $document = new Document();
         $document->name = $request->name;
         $document->nama_penulis = $request->nama_penulis;
@@ -86,14 +78,6 @@ class DocumentController extends Controller
     public function update(UpdateDocumentRequest $request, Document $document)
     {
         //
-        $this->validate($request, [
-            'name' => 'required',
-            'nama_penulis' => 'required',
-            'tarikh_diterbitkan' => 'required',
-            'nama_pelulus' => 'required',
-            'tarikh_disahkan' => 'required',
-        ]);
-
         $document->name = $request->get('name');
         $document->nama_penulis = $request->get('nama_penulis');
         $document->tarikh_diterbitkan = $request->get('tarikh_diterbitkan');
