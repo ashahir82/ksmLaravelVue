@@ -26,6 +26,12 @@
             <div class="justify-center">
                 <h1>{{ $page }}</h1>
                 <p>{{ $subpage }}</p>
+                <div class="float-end">
+                    <a href="{{ route('documents.create') }}" type="button" class="btn btn-success btn-sm">
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                    </a>
+                </div>
+
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -46,9 +52,9 @@
                                     <form action="{{ route('documents.destroy', $document) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="button" class="btn btn-warning btn-sm">
+                                        <a href="" type="button" class="btn btn-warning btn-sm">
                                             <i class="fa-regular fa-pen-to-square"></i>
-                                        </button>
+                                        </a>
                                         <button type="submit" class="btn btn-danger btn-sm">
                                             <i class="fa-regular fa-trash-can"></i>
                                         </button>

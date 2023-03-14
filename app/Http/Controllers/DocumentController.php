@@ -28,6 +28,10 @@ class DocumentController extends Controller
     public function create()
     {
         //
+        return view('documents.create', [
+            'page' => 'New Document',
+            'subpage' => 'Tambah senarai dokumen baru',
+        ]);
     }
 
     /**
@@ -36,6 +40,23 @@ class DocumentController extends Controller
     public function store(StoreDocumentRequest $request)
     {
         //
+        $this->validate($request, [
+            'name' => 'required',
+            'nama_penulis' => 'required',
+            'tarikh_diterbitkan' => 'required',
+            'nama_pelulus' => 'required',
+            'tarikh_disahkan' => 'required',
+        ]);
+
+        $document = new Document();
+        $document->name = $request->name;
+        $document->nama_penulis = $request->nama_penulis;
+        $document->tarikh_diterbitkan = $request->tarikh_diterbitkan;
+        $document->nama_pelulus = $request->nama_pelulus;
+        $document->tarikh_disahkan = $request->tarikh_disahkan;
+        $document->save();
+
+        return to_route('documents.index');
     }
 
     /**
