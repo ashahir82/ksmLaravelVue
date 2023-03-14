@@ -14,7 +14,7 @@ class DocumentController extends Controller
     public function index()
     {
         //
-        $documents = Document::paginate(50);
+        $documents = Document::paginate(10);
         return view('documents.index', [
             'page' => 'Documents Page Index',
             'subpage' => 'Senarai dokumendokumen Jabatan',
