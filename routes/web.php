@@ -21,4 +21,5 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/document', [DocumentController::class, 'index'])->name('document.index');
+Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+Route::delete('/documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
