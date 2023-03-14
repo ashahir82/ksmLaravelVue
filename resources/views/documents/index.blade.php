@@ -52,7 +52,7 @@
                                     <form action="{{ route('documents.destroy', $document) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <a href="" type="button" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('documents.edit', $document) }}" type="button" class="btn btn-warning btn-sm">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
                                         <button type="submit" class="btn btn-danger btn-sm">
